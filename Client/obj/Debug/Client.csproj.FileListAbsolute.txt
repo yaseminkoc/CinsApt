@@ -1,0 +1,44 @@
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\bin\Debug\Client.exe.config
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\bin\Debug\Client.exe
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\bin\Debug\Client.pdb
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.formMain.resources
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.formLogin.resources
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.formPrivate.resources
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.exe
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.pdb
+C:\Users\RuvinF\Documents\Visual Studio 2017\Projects\AssignmentCNA\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\bin\Debug\Client.exe.config
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\bin\Debug\Client.exe
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\bin\Debug\Client.pdb
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.formMain.resources
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.formLogin.resources
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.formPrivate.resources
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.exe
+C:\Users\RuvinF\Desktop\CNA\Code\AssignmentCNA\Client\obj\Debug\Client.pdb
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\bin\Debug\Client.exe.config
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\bin\Debug\Client.exe
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\bin\Debug\Client.pdb
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\obj\Debug\Client.formMain.resources
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\obj\Debug\Client.formLogin.resources
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\obj\Debug\Client.formPrivate.resources
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\obj\Debug\Client.exe
+C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\obj\Debug\Client.pdb
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\bin\Debug\Client.exe.config
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\bin\Debug\Client.exe
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\bin\Debug\Client.pdb
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.frmCardReader.resources
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.exe
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.pdb
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.frmClientMain.resources
