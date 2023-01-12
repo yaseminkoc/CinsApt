@@ -32,9 +32,10 @@ namespace Server
         {
             InitializeComponent();
         }
+        //resets the token when the server restarts
         private void btnStart_Click(object sender, EventArgs e)
         {
-            cancellation = new CancellationTokenSource(); //resets the token when the server restarts
+            cancellation = new CancellationTokenSource(); 
             startServer();
         }
 
@@ -49,16 +50,13 @@ namespace Server
         public async void startServer()
         {
             listener.Start();
-            //    updateUI("Server Started at " + listener.LocalEndpoint);
             updateUI("Server Started");
-            //   updateUI("Waiting for Clients");
             try
             {
                 int counter = 0;
                 while (true)
                 {
                     counter++;
-                    //client = await listener.AcceptTcpClientAsync();
                     client = await Task.Run(() => listener.AcceptTcpClientAsync(), cancellation.Token);
 
                     /* get username */
@@ -72,9 +70,12 @@ namespace Server
                     clientList.Add(username, client);
                     listBox1.Items.Add(username);
                     updateUI("Connected to user " + username + " - " + client.Client.RemoteEndPoint);
-                    //  announce(username + " Joined at"+ DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt"), username, false);
 
-                    await Task.Delay(1000).ContinueWith(t => sendUsersList(true));
+                    await Task.Delay(1000).ContinueWith(t => {
+                        sendUsersList(true);
+                        sendUsersList(false, true, getWeatherInfo(), "", "");
+                        sendUsersList(false, true, "", "", getIMKBInfo());
+                    });
 
 
                     var c = new Thread(() => ServerReceive(client, username));
@@ -102,22 +103,16 @@ namespace Server
 
                     if (flag)
                     {
-                        //broadcastBytes = Encoding.ASCII.GetBytes("gChat|*|" + uName + " says : " + msg);
-
                         chat.Add("gChat");
                         chat.Add(uName + ": " + msg);
                         broadcastBytes = ObjectToByteArray(chat);
                     }
                     else
                     {
-                        //broadcastBytes = Encoding.ASCII.GetBytes("gChat|*|" + msg);
-
                         chat.Add("gChat");
                         chat.Add(msg);
                         broadcastBytes = ObjectToByteArray(chat);
-
                     }
-
                     broadcastStream.Write(broadcastBytes, 0, broadcastBytes.Length);
                     broadcastStream.Flush();
                     chat.Clear();
@@ -213,11 +208,6 @@ namespace Server
             {
 
             }
-
-            //cancellation.Cancel();
-            //client.Close();   
-
-
         }
 
         private void disconnectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -298,10 +288,7 @@ namespace Server
                     if (weatherInfo != "")
                     {
                         weatherInformations.Add("weatherInfo");
-                        foreach (String name in clist)
-                        {
-                            weatherInformations.Add(">>> " + weatherInfo);
-                        }
+                        weatherInformations.Add(">>> " + weatherInfo);
                         weatherList = ObjectToByteArray(weatherInformations);
                         foreach (var Item in clientList)
                         {
@@ -316,10 +303,7 @@ namespace Server
                     else if (IMKBInfo != "")
                     {
                         IMKBInformations.Add("IMKBInfo");
-                        foreach (String name in clist)
-                        {
-                            IMKBInformations.Add(">>> " + IMKBInfo);
-                        }
+                        IMKBInformations.Add(">>> " + IMKBInfo);
                         IMKBList = ObjectToByteArray(IMKBInformations);
                         foreach (var Item in clientList)
                         {

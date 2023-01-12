@@ -17,9 +17,7 @@ namespace Client
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            frmCardReader fLogin = new frmCardReader();
-            
-
+            frmCardReader fLogin = new frmCardReader();            
             if (fLogin.ShowDialog() == DialogResult.OK)
                 {
                 string[] users = System.IO.File.ReadAllLines(@".\Users.txt");
@@ -33,12 +31,10 @@ namespace Client
                         {
                             isHere = true;
                         }
-
                     }
                     if (isHere == false)
                     {
                         MessageBox.Show("You are not in our apartment :) So you cannot login");
-
                     }
                     else
                     {

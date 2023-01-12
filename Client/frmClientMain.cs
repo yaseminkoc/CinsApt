@@ -23,7 +23,6 @@ namespace Client
         string readData = null;
         Thread ctThread;
         String name = null;
-        //Dictionary<string, Object> nowChatting = new Dictionary<string, Object>();
         List<string> nowChatting = new List<string>();
         List<string> chat = new List<string>();
 
@@ -193,7 +192,7 @@ namespace Client
                         readData = "Reconnect Again";
                         msg();
 
-                        this.Invoke((MethodInvoker)delegate // To Write the Received data
+                        this.Invoke((MethodInvoker)delegate
                         {
                           
                         });
@@ -265,7 +264,7 @@ namespace Client
             }
         }
 
-        bool SocketConnected(TcpClient s) //check whether client is connected server
+        bool SocketConnected(TcpClient s) 
         {
             bool flag = false;
             try
@@ -275,7 +274,7 @@ namespace Client
                 if (part1 && part2)
                 {
                     indicator.BackColor = Color.Red;
-                    this.Invoke((MethodInvoker)delegate // cross threads
+                    this.Invoke((MethodInvoker)delegate 
                     {
                    
                     });

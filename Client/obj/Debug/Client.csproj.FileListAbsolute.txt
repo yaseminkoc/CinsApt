@@ -35,10 +35,11 @@ C:\Users\yasemin\Desktop\Multithreaded-Client-Server-Chat-Application\Client\obj
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\bin\Debug\Client.exe.config
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\bin\Debug\Client.exe
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\bin\Debug\Client.pdb
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.frmClientMain.resources
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.frmCardReader.resources
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.Properties.Resources.resources
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.csproj.GenerateResource.cache
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.exe
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.pdb
-C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.frmClientMain.resources
