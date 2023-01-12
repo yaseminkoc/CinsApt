@@ -42,4 +42,3 @@ C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.csproj.
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.exe
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.pdb
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.frmClientMain.resources
-C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Client\obj\Debug\Client.csproj.AssemblyReference.cache
