@@ -42,4 +42,3 @@ C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\bin\Debug\HtmlAgilityPac
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\bin\Debug\HtmlAgilityPack.xml
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\bin\Debug\Newtonsoft.Json.xml
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\obj\Debug\Server.csproj.CopyComplete
-C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\obj\Debug\Server.csproj.AssemblyReference.cache

@@ -41,7 +41,8 @@ namespace Client
 
         private void formLogin_Load(object sender, EventArgs e)
         {
-            btnAdd.DialogResult = DialogResult.OK;
+            
+  
         }
 
 

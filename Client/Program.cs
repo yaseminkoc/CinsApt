@@ -18,22 +18,11 @@ namespace Client
             Application.SetCompatibleTextRenderingDefault(false);
 
             frmCardReader fLogin = new frmCardReader();
-            Boolean flag = true;
+            
 
-                if (fLogin.ShowDialog() == DialogResult.OK)
+            if (fLogin.ShowDialog() == DialogResult.OK)
                 {
-
-                var users = new List<string>()
-                    {
-                         "ysmnkc",
-                         "frhtclk",
-                         "mhmmt",
-                         "user1",
-                         "user2",
-                         "user3",
-                         "cinsapt0",
-                         "foreign"
-                    };
+                string[] users = System.IO.File.ReadAllLines(@".\Users.txt");
                 bool isHere = false;
 
                 if (fLogin.Textb() != "")
