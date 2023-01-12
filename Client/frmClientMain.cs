@@ -57,12 +57,17 @@ namespace Client
             }
             catch (Exception er)
             {
-                btnConnect.Enabled = true;
+                connectToServer();
             }
 
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        public bool connectToServer()
         {
             clientSocket = new TcpClient();
             try
@@ -76,15 +81,15 @@ namespace Client
                 byte[] outStream = Encoding.ASCII.GetBytes(name + "$");
                 serverStream.Write(outStream, 0, outStream.Length);
                 serverStream.Flush();
-                btnConnect.Enabled = false;
-
 
                 ctThread = new Thread(getMessage);
                 ctThread.Start();
+                return true;
             }
             catch (Exception er)
             {
                 MessageBox.Show("Server Not Started");
+                return false;
             }
         }
 
@@ -92,10 +97,49 @@ namespace Client
         {
             this.Invoke((MethodInvoker)delegate
             {
+                textBox1.Text = "";
+                for (int i = 1; i < parts.Count; i++)
+                {
+                    textBox1.AppendText("\n"+parts[i]);
+
+                }
+            });
+        }
+
+        public void getActiveUsers(List<string> parts)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
                 listBox1.Items.Clear();
                 for (int i = 1; i < parts.Count; i++)
                 {
-                    textBox1.AppendText(parts[i]);
+                    listBox1.Items.Add(parts[i]);
+
+                }
+            });
+        }
+
+        public void getWeatherData(List<string> parts)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
+                listBox3.Items.Clear();
+                for (int i = 1; i < parts.Count; i++)
+                {
+                    listBox3.Items.Add(parts[i]);
+
+                }
+            });
+        }
+
+        public void getIMKBData(List<string> parts)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
+                listBox2.Items.Clear();
+                for (int i = 1; i < parts.Count; i++)
+                {
+                    listBox2.Items.Add(parts[i]);
 
                 }
             });
@@ -117,7 +161,6 @@ namespace Client
                         MessageBox.Show("You've been Disconnected");
                         ctThread.Abort();
                         clientSocket.Close();
-                        btnConnect.Enabled = true;
                     }
 
                     parts = (List<string>)ByteArrayToObject(inStream);
@@ -125,6 +168,17 @@ namespace Client
                     {
                         case "joinedInfo":
                             getUsers(parts);
+                            break;
+                        case "userList":
+                            getActiveUsers(parts);
+                            break;
+
+                        case "weatherInfo":
+                            getWeatherData(parts);
+                            break;
+
+                        case "IMKBInfo":
+                            getIMKBData(parts);
                             break;
 
                         case "gChat":
@@ -141,7 +195,7 @@ namespace Client
 
                         this.Invoke((MethodInvoker)delegate // To Write the Received data
                         {
-                            btnConnect.Enabled = true;
+                          
                         });
 
                         ctThread.Abort();
@@ -155,7 +209,7 @@ namespace Client
             {
                 ctThread.Abort();
                 clientSocket.Close();
-                btnConnect.Enabled = true;
+          
                 Console.WriteLine(e);
             }
 
@@ -223,7 +277,7 @@ namespace Client
                     indicator.BackColor = Color.Red;
                     this.Invoke((MethodInvoker)delegate // cross threads
                     {
-                        btnConnect.Enabled = true;
+                   
                     });
                     flag = false;
                 }
@@ -273,6 +327,7 @@ namespace Client
         private void frmClientMain_Load(object sender, EventArgs e)
         {
             label1.Text = this.name;
+            connectToServer();
         }
     }
 }

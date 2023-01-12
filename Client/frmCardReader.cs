@@ -37,15 +37,13 @@ namespace Client
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //formMain form = new formMain();
-           // form.Text = "hiii";
-
-
         }
 
         private void formLogin_Load(object sender, EventArgs e)
         {
-
+            btnAdd.DialogResult = DialogResult.OK;
         }
+
+
     }
 }

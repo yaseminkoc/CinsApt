@@ -22,23 +22,48 @@ namespace Client
 
                 if (fLogin.ShowDialog() == DialogResult.OK)
                 {
-                    if (fLogin.Textb() != "")
+
+                var users = new List<string>()
                     {
-                        flag = false;
+                         "ysmnkc",
+                         "frhtclk",
+                         "mhmmt",
+                         "user1",
+                         "user2",
+                         "user3",
+                         "cinsapt0",
+                         "foreign"
+                    };
+                bool isHere = false;
+
+                if (fLogin.Textb() != "")
+                {
+                    foreach (string user in users)
+                    {
+                        if (user == fLogin.Textb())
+                        {
+                            isHere = true;
+                        }
+
+                    }
+                    if (isHere == false)
+                    {
+                        MessageBox.Show("You are not in our apartment :) So you cannot login");
+
+                    }
+                    else
+                    {
                         frmClientMain form = new frmClientMain();
                         form.setName(fLogin.Textb());
                         Application.Run(form);
                     }
-                    else
-                    {
-                        fLogin.slblU("Please enter");
-                        //MessageBox.Show("Please enter");
-                    }
+
                 }
                 else
                 {
-                    Application.Exit();
-
+                    fLogin.slblU("Please enter");
+                }
+               
                 }
             
         }

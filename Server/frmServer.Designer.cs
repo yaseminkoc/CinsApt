@@ -52,10 +52,10 @@
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnStart.ForeColor = System.Drawing.Color.Black;
-            this.btnStart.Location = new System.Drawing.Point(34, 142);
+            this.btnStart.Location = new System.Drawing.Point(9, 441);
             this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(191, 41);
+            this.btnStart.Size = new System.Drawing.Size(148, 49);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start Server";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -64,7 +64,7 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(7, 22);
+            this.textBox1.Location = new System.Drawing.Point(7, 20);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -95,10 +95,10 @@
             this.btnServerStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServerStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnServerStop.ForeColor = System.Drawing.Color.White;
-            this.btnServerStop.Location = new System.Drawing.Point(34, 305);
+            this.btnServerStop.Location = new System.Drawing.Point(558, 441);
             this.btnServerStop.Margin = new System.Windows.Forms.Padding(4);
             this.btnServerStop.Name = "btnServerStop";
-            this.btnServerStop.Size = new System.Drawing.Size(191, 41);
+            this.btnServerStop.Size = new System.Drawing.Size(148, 49);
             this.btnServerStop.TabIndex = 7;
             this.btnServerStop.Text = "Stop Server";
             this.btnServerStop.UseVisualStyleBackColor = false;
@@ -108,30 +108,32 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(34, 190);
+            this.button1.Location = new System.Drawing.Point(164, 440);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 49);
             this.button1.TabIndex = 10;
             this.button1.Text = "Update Weather Data and Send To Clients";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(34, 246);
+            this.button2.Location = new System.Drawing.Point(361, 441);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(190, 52);
+            this.button2.Size = new System.Drawing.Size(190, 49);
             this.button2.TabIndex = 11;
             this.button2.Text = "Update IMKB Data and Send to Clients";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(250, 120);
+            this.groupBox1.Location = new System.Drawing.Point(70, 64);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(134, 357);
+            this.groupBox1.Size = new System.Drawing.Size(147, 357);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Active Users";
@@ -140,7 +142,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(4, 21);
+            this.listBox1.Location = new System.Drawing.Point(12, 21);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(124, 324);
             this.listBox1.TabIndex = 3;
@@ -148,7 +150,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Location = new System.Drawing.Point(392, 120);
+            this.groupBox2.Location = new System.Drawing.Point(225, 64);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(344, 357);
             this.groupBox2.TabIndex = 13;
@@ -159,7 +161,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Algerian", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(338, 46);
+            this.label1.Location = new System.Drawing.Point(246, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 36);
             this.label1.TabIndex = 14;
@@ -173,7 +175,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(758, 517);
+            this.ClientSize = new System.Drawing.Size(717, 517);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

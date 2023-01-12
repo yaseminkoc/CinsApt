@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,7 +72,7 @@ namespace Server
                     clientList.Add(username, client);
                     listBox1.Items.Add(username);
                     updateUI("Connected to user " + username + " - " + client.Client.RemoteEndPoint);
-                  //  announce(username + " Joined at"+ DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt"), username, false);
+                    //  announce(username + " Joined at"+ DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt"), username, false);
 
                     await Task.Delay(1000).ContinueWith(t => sendUsersList(true));
 
@@ -180,14 +182,15 @@ namespace Server
                 catch (Exception r)
                 {
                     updateUI("Client Disconnected: " + username);
-          
+                   
                     clientList.Remove(username);
 
                     this.Invoke((MethodInvoker)delegate
                     {
                         listBox1.Items.Remove(username);
+                        sendUsersList(false, false, "", username);
                     });
-                    sendUsersList(false);
+                   
                     break;
                 }
             }
@@ -233,50 +236,106 @@ namespace Server
             }
         }
 
-        public void sendUsersList(bool isJoin)
+        public void sendUsersList(bool isJoin, bool isAnnounce = false, string weatherInfo = "", string username = "", string IMKBInfo = "")
         {
             try
             {
+
                 byte[] userList = new byte[1024];
+                byte[] weatherList = new byte[1024];
+                byte[] IMKBList = new byte[1024];
                 byte[] joinList = new byte[1024];
                 string[] clist = listBox1.Items.OfType<string>().ToArray();
                 List<string> users = new List<string>();
+                List<string> weatherInformations = new List<string>();
+                List<string> IMKBInformations = new List<string>();
                 List<string> joinedUsers = new List<string>();
-
-                users.Add("userList");
-                joinedUsers.Add("joinedInfo");
-                foreach (String name in clist)
+                if (isJoin == true || username != "")
                 {
-                    users.Add(name);
-                    if (isJoin) {
-                        joinedUsers.Add("\n>>> "+ name + " unlock the outer door of CinsAparment at " + DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt"));
-                    }
-                    else
+                    users.Add("userList");
+                    joinedUsers.Add("joinedInfo");
+                    foreach (String name in clist)
                     {
-                        joinedUsers.Add("\n>>> " + name + " has gone from CinsAparment at " + DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt"));
+                        users.Add(name);
+
+                        if (isJoin)
+                        {
+                            joinedUsers.Add(">>> " + name + " unlock the outer door of CinsAparment at " + DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt"));
+                        }
+                        else
+                        {                         
+                            if (username != "")
+                            {
+                                joinedUsers.Add(">>> " + username + " has gone from CinsAparment at " + DateTime.Now.ToString("yyyy-MM-dd h:mm:ss tt"));
+                            }
+                           
+                        }
+
                     }
-                       
+                    userList = ObjectToByteArray(users);
+                    joinList = ObjectToByteArray(joinedUsers);
+                    foreach (var Item in clientList)
+                    {
+                        TcpClient broadcastSocket;
+                        broadcastSocket = (TcpClient)Item.Value;
+                        NetworkStream broadcastStream = broadcastSocket.GetStream();
+                        broadcastStream.Write(userList, 0, userList.Length);
+                        broadcastStream.Flush();
+                        users.Clear();
+                    }
+                    foreach (var Item in clientList)
+                    {
+                        TcpClient broadcastSocket;
+                        broadcastSocket = (TcpClient)Item.Value;
+                        NetworkStream broadcastStream = broadcastSocket.GetStream();
+                        broadcastStream.Write(joinList, 0, joinList.Length);
+                        broadcastStream.Flush();
+                      //  joinedUsers.Clear();
+                    }
                 }
-                userList = ObjectToByteArray(users);
-                joinList = ObjectToByteArray(joinedUsers);
-                foreach (var Item in clientList)
+                else if(isAnnounce == true)
                 {
-                    TcpClient broadcastSocket;
-                    broadcastSocket = (TcpClient)Item.Value;
-                    NetworkStream broadcastStream = broadcastSocket.GetStream();
-                    broadcastStream.Write(userList, 0, userList.Length);
-                    broadcastStream.Flush();
-                    users.Clear();
+                    if (weatherInfo != "")
+                    {
+                        weatherInformations.Add("weatherInfo");
+                        foreach (String name in clist)
+                        {
+                            weatherInformations.Add(">>> " + weatherInfo);
+                        }
+                        weatherList = ObjectToByteArray(weatherInformations);
+                        foreach (var Item in clientList)
+                        {
+                            TcpClient broadcastSocket;
+                            broadcastSocket = (TcpClient)Item.Value;
+                            NetworkStream broadcastStream = broadcastSocket.GetStream();
+                            broadcastStream.Write(weatherList, 0, weatherList.Length);
+                            broadcastStream.Flush();
+                            weatherInformations.Clear();
+                        }
+                    }
+                    else if (IMKBInfo != "")
+                    {
+                        IMKBInformations.Add("IMKBInfo");
+                        foreach (String name in clist)
+                        {
+                            IMKBInformations.Add(">>> " + IMKBInfo);
+                        }
+                        IMKBList = ObjectToByteArray(IMKBInformations);
+                        foreach (var Item in clientList)
+                        {
+                            TcpClient broadcastSocket;
+                            broadcastSocket = (TcpClient)Item.Value;
+                            NetworkStream broadcastStream = broadcastSocket.GetStream();
+                            broadcastStream.Write(IMKBList, 0, IMKBList.Length);
+                            broadcastStream.Flush();
+                            IMKBInformations.Clear();
+                        }
+
+                    }
                 }
-                foreach (var Item in clientList)
-                {
-                    TcpClient broadcastSocket;
-                    broadcastSocket = (TcpClient)Item.Value;
-                    NetworkStream broadcastStream = broadcastSocket.GetStream();
-                    broadcastStream.Write(joinList, 0, joinList.Length);
-                    broadcastStream.Flush();
-                    joinedUsers.Clear();
-                }
+
+
+
             }
             catch (SocketException se)
             {
@@ -287,6 +346,39 @@ namespace Server
         {
             textBox1.SelectionStart = textBox1.TextLength;
             textBox1.ScrollToCaret();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            sendUsersList(false, true, getWeatherInfo(), "","");
+        }
+
+        public string getWeatherInfo()
+        {
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+            var client = new WebClient();
+            var htmlCode = client.DownloadString("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m");
+            var myDeserializedClass = JsonConvert.DeserializeObject<Root>(htmlCode);
+            return " Temperature: " + myDeserializedClass.current_weather.temperature.ToString() +
+                " - Speed of Wind: " + myDeserializedClass.current_weather.windspeed.ToString() +
+                " - Direction of Wind: " + myDeserializedClass.current_weather.winddirection.ToString() +
+                " - Time: " + myDeserializedClass.current_weather.time.ToString();
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            sendUsersList(false, true, "", "", getIMKBInfo());
+        }
+
+        public string getIMKBInfo()
+        {
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+            var web = new HtmlWeb();
+            var document = web.Load("https://www.doviz.com/");
+            var usd = document.DocumentNode.SelectSingleNode("//*[@id=\"narrow-table-with-flag\"]/tbody/tr[1]/td[2]").InnerText;
+            var euro = document.DocumentNode.SelectSingleNode("//*[@id=\"narrow-table-with-flag\"]/tbody/tr[2]/td[2]").InnerText;
+            return "Dollar ($) : " + usd + " - Euro (€) : "+ euro;
         }
     }
 }

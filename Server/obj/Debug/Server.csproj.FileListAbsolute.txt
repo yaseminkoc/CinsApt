@@ -36,3 +36,10 @@ C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\obj\Debug\Server.csproj.
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\obj\Debug\Server.exe
 C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\obj\Debug\Server.pdb
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\bin\Debug\HtmlAgilityPack.dll
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\bin\Debug\HtmlAgilityPack.xml
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\bin\Debug\Newtonsoft.Json.xml
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\obj\Debug\Server.csproj.CopyComplete
+C:\Users\yasemin\Desktop\networkodev\CinsApMaSys\Server\obj\Debug\Server.csproj.AssemblyReference.cache
